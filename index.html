@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shunya — Dhyan, Jagrukta, Zorba the Buddha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f1ea;--bg2:#ebe6dc;--ink:#1b1a17;--mute:#6f6a5f;--line:#d6d0c2;--accent:#b5472f;--card:#efeadf;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e0e0d;--bg2:#151514;--ink:#e9e5da;--mute:#8d8878;--line:#2a2927;--accent:#d9694d;--card:#151514;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e0e0d;--bg2:#151514;--ink:#e9e5da;--mute:#8d8878;--line:#2a2927;--accent:#d9694d;--card:#151514;color-scheme:dark}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-weight:300;line-height:1.7;transition:background .6s,color .6s}
+.serif{font-family:"Cormorant Garamond",Georgia,serif;font-weight:300}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;justify-content:space-between;align-items:center;padding:18px 6vw;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px)}
+nav b{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:1.5rem;letter-spacing:.12em}
+nav .links{display:flex;gap:22px;align-items:center;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+nav a{color:var(--mute);text-decoration:none}nav a:hover{color:var(--ink)}
+button{font:inherit;color:inherit;cursor:pointer}
+.theme{background:none;border:1px solid var(--line);border-radius:50%;width:30px;height:30px}
+@media(max-width:700px){nav .links a{display:none}}
+section{padding:14vh 6vw;max-width:1100px;margin:0 auto}
+.eyebrow{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:300;font-size:clamp(2.2rem,6vw,4rem);line-height:1.1;margin:0 0 40px}
+.hero{min-height:88vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative}
+.hero svg{width:min(62vw,340px);margin-bottom:34px}
+.hero circle{fill:none;stroke:var(--ink);stroke-width:5;stroke-linecap:round;stroke-dasharray:640;stroke-dashoffset:640;animation:draw 3.5s ease forwards .3s;opacity:.85}
+@keyframes draw{to{stroke-dashoffset:90}}
+.hero h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:300;font-size:clamp(2.6rem,9vw,6rem);line-height:1;margin:0}
+.hero h1 em{color:var(--accent)}
+.hero p{max-width:480px;color:var(--mute);margin:26px auto 34px}
+.btn{border:1px solid var(--ink);background:none;padding:12px 30px;border-radius:40px;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;transition:.3s;text-decoration:none;color:var(--ink);display:inline-block}
+.btn:hover{background:var(--ink);color:var(--bg)}
+/* quotes */
+.quote{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:9vh 0;text-align:center}
+.quote blockquote{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-weight:300;font-size:clamp(1.7rem,4.8vw,3rem);line-height:1.3;margin:0 auto 26px;max-width:780px;transition:opacity .6s}
+.quote small{color:var(--mute);letter-spacing:.2em;text-transform:uppercase;font-size:.7rem}
+.fade{opacity:0}
+/* breath */
+.breath{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+@media(max-width:760px){.breath{grid-template-columns:1fr}}
+.orb-wrap{display:flex;flex-direction:column;align-items:center;gap:20px}
+.orb{width:200px;height:200px;border-radius:50%;border:1px solid var(--ink);display:grid;place-items:center;transition:transform 4s ease-in-out;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 22%,transparent),transparent 70%)}
+.orb.in{transform:scale(1.35)}
+.orb span{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.6rem}
+/* guides */
+.guides{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.guide{background:var(--bg);padding:34px 28px;transition:background .4s;cursor:pointer}
+.guide:hover{background:var(--card)}
+.guide .n{color:var(--accent);font-size:.75rem;letter-spacing:.25em}
+.guide h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:1.7rem;margin:10px 0 6px}
+.guide p{margin:0;color:var(--mute);font-size:.92rem}
+.guide ol{display:none;margin:16px 0 0;padding-left:18px;font-size:.9rem}
+.guide.open ol{display:block}
+.guide .tag{display:block;margin-top:14px;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+/* talks */
+.talk{display:grid;grid-template-columns:60px 1fr auto;gap:20px;align-items:center;padding:26px 0;border-top:1px solid var(--line);transition:padding .4s}
+.talk:last-child{border-bottom:1px solid var(--line)}
+.talk:hover{padding-left:14px}
+.talk .i{color:var(--mute);font-size:.8rem}
+.talk h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:400;font-size:clamp(1.3rem,3vw,1.9rem);margin:0}
+.talk p{margin:2px 0 0;color:var(--mute);font-size:.88rem}
+.talk .d{font-size:.78rem;color:var(--mute);white-space:nowrap}
+/* zorba */
+.zb{background:var(--bg2);max-width:none;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.zb>div{max-width:1100px;margin:0 auto}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:40px 0}
+@media(max-width:700px){.split{grid-template-columns:1fr}}
+.half{padding:44px 32px;border:1px solid var(--line);transition:.5s}
+.half:first-child{border-right:none}
+@media(max-width:700px){.half:first-child{border-right:1px solid var(--line);border-bottom:none}}
+.half h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:300;font-size:2.4rem;margin:0}
+.half:hover{background:var(--bg)}
+.half:first-child h3{color:var(--accent)}
+.half p{color:var(--mute)}
+.big{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:clamp(1.5rem,4vw,2.4rem);line-height:1.3;max-width:760px}
+.rules{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.rules span{border:1px solid var(--line);padding:8px 18px;border-radius:30px;font-size:.82rem;color:var(--mute)}
+footer{text-align:center;padding:12vh 6vw 8vh;color:var(--mute);font-size:.85rem}
+footer .serif{font-size:2rem;color:var(--ink);margin-bottom:8px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 1.1s,transform 1.1s}
+.reveal.on{opacity:1;transform:none}
+#prog{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:2px;width:0;background:var(--accent);z-index:9}
+.sub{color:var(--mute);max-width:560px;margin:-14px 0 40px}
+.timer{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+@media(max-width:760px){.timer{grid-template-columns:1fr}}
+.ring{position:relative;width:240px;height:240px;margin:auto}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:2}
+.ring .bg{stroke:var(--line)}.ring .fg{stroke:var(--accent);stroke-dasharray:691;stroke-dashoffset:0;transition:stroke-dashoffset 1s linear}
+.ring b{position:absolute;inset:0;display:grid;place-items:center;font-family:"Cormorant Garamond",Georgia,serif;font-weight:300;font-size:3rem}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+.chip{background:none;border:1px solid var(--line);padding:8px 20px;border-radius:30px;font-size:.85rem;color:var(--mute);transition:.3s}
+.chip:hover,.chip.sel{border-color:var(--accent);color:var(--ink)}
+.resp{margin-top:26px;padding:28px;border-left:2px solid var(--accent);background:var(--card);min-height:120px}
+.resp h4{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:1.6rem;margin:0 0 8px}
+.resp p{margin:0 0 8px;color:var(--mute)}
+.rhythm{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px}
+.rhythm div{border-top:1px solid var(--ink);padding-top:18px}
+.rhythm small{color:var(--accent);letter-spacing:.25em;text-transform:uppercase;font-size:.7rem}
+.rhythm h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:1.6rem;margin:6px 0}
+.rhythm p{color:var(--mute);font-size:.92rem;margin:0}
+.prompt{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(1.6rem,4vw,2.5rem);line-height:1.25;min-height:5.5em;transition:opacity .5s}
+details{border-top:1px solid var(--line);padding:20px 0}details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-family:"Cormorant Garamond",Georgia,serif;font-size:1.5rem;list-style:none;display:flex;justify-content:space-between}
+summary::after{content:"+";color:var(--accent)}details[open] summary::after{content:"–"}
+details p{color:var(--mute);margin:12px 0 0;max-width:640px}
+.reveal.on{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<nav>
+  <b>SHUNYA</b>
+  <div class="links">
+    <a href="#quotes">Quotes</a><a href="#dhyan">Dhyan</a><a href="#abhyas">Abhyas</a><a href="#talks">Talks</a><a href="#zorba">Zorba</a><a href="#sawal">Sawal</a>
+    <button class="theme" id="theme" aria-label="Theme badlo">◐</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <svg viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="102" transform="rotate(-70 120 120)"/></svg>
+  <div class="eyebrow">Dhyan · Jagrukta · Azaadi</div>
+  <h1>Shaant raho.<br><em>Jhukna</em> mat.</h1>
+  <p>Ek jagah jahan khamoshi bhi baghawat hai. Dhyan koi daur nahi, jagne ka tareeka hai.</p>
+  <a class="btn" href="#dhyan">Shuru karo</a>
+</section>
+
+<section id="quotes" class="reveal">
+  <div class="eyebrow">Aaj ka vichaar</div>
+  <div class="quote">
+    <blockquote id="q"></blockquote>
+    <small id="qa"></small><br><br>
+    <button class="btn" id="nq">Agla vichaar</button>
+  </div>
+</section>
+
+<section id="dhyan" class="reveal">
+  <div class="eyebrow">Meditation guides</div>
+  <h2>Saans se shuru.<br>Baaki sab girta jayega.</h2>
+  <div class="breath">
+    <div class="orb-wrap">
+      <div class="orb" id="orb"><span id="ot">Tap karo</span></div>
+      <button class="btn" id="bb">Breath guide</button>
+    </div>
+    <p style="color:var(--mute)">4 second andar, 6 second bahar. Bas itna. Kuch paane ki koshish mat karo, sirf dekho ki saans aa rahi hai aur ja rahi hai. Jis pal aap ‘theek se’ karne ki koshish chhod do, wahin dhyan hai.</p>
+  </div>
+  <br><br>
+  <div class="guides" id="guides"></div>
+</section>
+
+<section id="abhyas" class="reveal">
+  <div class="eyebrow">Abhyas</div>
+  <h2>Sirf padho mat.<br>Abhi baith jao.</h2>
+  <p class="sub">Timer lagao aur bas baitho. Khatam hone par halki si ghanti bajegi.</p>
+  <div class="timer">
+    <div class="ring"><svg viewBox="0 0 240 240"><circle class="bg" cx="120" cy="120" r="110"/><circle class="fg" id="fg" cx="120" cy="120" r="110"/></svg><b id="tt">05:00</b></div>
+    <div>
+      <div class="chips" id="durs"></div>
+      <button class="btn" id="ts">Shuru</button>
+      <p style="color:var(--mute);font-size:.9rem;margin-top:22px">Rukne ka mann kare to bhi ek saans aur baitho. Bechaini ko bhi dekhna dhyan ka hissa hai.</p>
+    </div>
+  </div>
+  <br><br><br>
+  <div class="eyebrow">Abhi tum kaisa mehsoos kar rahe ho?</div>
+  <div class="chips" id="moods"></div>
+  <div class="resp" id="resp"><p>Upar se ek halat chuno. Tumhe uske liye chhota abhyas milega.</p></div>
+</section>
+
+<section id="talks" class="reveal">
+  <div class="eyebrow">Spiritual talks</div>
+  <h2>Sunna ek kala hai.<br>Samajhna, usse bhi badi.</h2>
+  <div id="talklist"></div>
+  <p style="color:var(--mute);font-size:.85rem;margin-top:22px">Yeh sample titles hain — apni asli recordings ke links yahan jod sakte ho.</p>
+</section>
+
+<section id="zorba" class="zb reveal"><div>
+  <div class="eyebrow">Zorba the Buddha</div>
+  <h2>Duniya chhodne ki zaroorat nahi.<br>Bas behoshi chhodo.</h2>
+  <div class="split">
+    <div class="half"><h3>Zorba</h3><p>Hansna, nachna, kamana, pyaar karna, galtiyan karna. Zindagi ko poori tarah jeena, bina sharm ke.</p></div>
+    <div class="half"><h3 style="color:var(--ink)">Buddha</h3><p>Har pal mein jaag jaana. Na bhaagna, na chipakna. Sirf saakshi hona, jo ho raha hai usse door se nahi, andar se dekhna.</p></div>
+  </div>
+  <p class="big">Dono ek saath. Bhoga hua jeevan, aur jaaga hua mann. Na tyaag ka dikhava, na bhog ki andhi daud.</p>
+  <div class="rules">
+    <span>Kaam karte hue saans ko dekho</span><span>Gussa aaye to use pehchano</span><span>Bheed mein bhi akele reh sako</span><span>Hasna mat bhoolo</span><span>Kisi guru ko nahi, khud ko suno</span>
+  </div>
+</div></section>
+
+<section id="rhythm" class="reveal">
+  <div class="eyebrow">Roz ka rhythm</div>
+  <h2>Dhyan ek ghanta nahi,<br>poora din hai.</h2>
+  <div class="rhythm">
+    <div><small>Subah</small><h3>Phone se pehle saans</h3><p>Aankh khulte hi 5 saans lo. Duniya ke shor se pehle apne saath 2 minute.</p></div>
+    <div><small>Din</small><h3>Ek kaam, poora dhyan</h3><p>Chai peeni ho ya mail likhna, ek kaam chuno aur use bina doosre kaam ke karo.</p></div>
+    <div><small>Shaam</small><h3>Bheed mein khamoshi</h3><p>Ghar lautte waqt 10 kadam bina phone ke chalo. Sharir ko din chhodne do.</p></div>
+    <div><small>Raat</small><h3>Din ko dekho, judge mat karo</h3><p>Sone se pehle bas yaad karo kya hua. Na achha, na bura, sirf dekha.</p></div>
+  </div>
+</section>
+
+<section id="sawal" class="reveal">
+  <div class="eyebrow">Khud se sawal</div>
+  <div class="prompt" id="pr"></div><br>
+  <button class="btn" id="np">Naya sawal</button>
+  <br><br><br><br>
+  <h2>Aksar poochhe jaane wale sawal</h2>
+  <details><summary>Mujhse dhyan nahi hota, mann bhaagta rehta hai.</summary><p>Yahi normal hai. Mann ka kaam hi bhaagna hai. Dhyan mann ko rokna nahi, use bhaagte hue dekhna hai. Jis pal tumne dekha ki mann bhaag gaya, wohi jagna hai.</p></details>
+  <details><summary>Kitna time roz dena chahiye?</summary><p>Roz 5 minute, lagataar, 1 ghante ke ek din se behtar hai. Chhota shuru karo, jab mann kare tab badhao.</p></details>
+  <details><summary>Kya dhyan ke liye dharm ya guru zaroori hai?</summary><p>Nahi. Yeh sirf dhyaan dena sikhna hai. Koi bhi, kisi bhi vishwas ke saath, ya bina kisi vishwas ke, baith sakta hai.</p></details>
+  <details><summary>Zorba the Buddha ka matlab kya hai, sach mein?</summary><p>Zindagi ko poori tarah jeena (Zorba) aur saath mein poori tarah jaage rehna (Buddha). Tyaag aur bhog mein se ek chunna nahi, dono ko jaag ke saath jeena.</p></details>
+  <details><summary>Kya dhyan therapy ki jagah le sakta hai?</summary><p>Nahi. Dhyan madad karta hai, par gehri takleef mein kisi mental health professional se zaroor milo.</p></details>
+</section>
+
+<footer>
+  <div class="serif">Shunya</div>
+  <div>Khali hona hi bhar jaana hai.</div>
+  <br><div>© 2026 · Shaanti se banaya gaya</div>
+</footer>
+
+<script>
+const Q=[["Khamoshi bhaagna nahi hai. Khamoshi wahan hai jahan tum ruk gaye ho aur sab kuch sunai de raha hai.","Shunya"],
+["Jo tumhe dara raha hai, wahi tumhara guru hai. Use dekho, bhaago mat.","Shunya"],
+["Jagrukta koi vichaar nahi, ek jagah hai jahan se vichaar dikhte hain.","Shunya"],
+["Bagawat sirf bahar nahi hoti. Sabse gehri bagawat hai bina dar ke andar baithna.","Shunya"],
+["Tum koi saadhu banne nahi aaye ho. Tum poore insaan banne aaye ho.","Shunya"],
+["Naachte hue bhi dhyan ho sakta hai, agar naach mein tum poore ho.","Shunya"],
+["Har pal naya hai. Kal ki tum, aaj ke tum se mil bhi nahi sakte.","Shunya"],
+["Sach ko sunne ke liye pehle apne vichaaron ka shor kam karna padta hai.","Shunya"],
+["Khush rehne ke liye kisi ki ijazat nahi chahiye.","Shunya"],
+["Dhyan wahan shuru hota hai jahan tum kuch ‘banna’ chhod dete ho.","Shunya"],
+["Jeevan ko gambheer mat lo. Use poori tarah jiyo, aur halke se.","Shunya"],
+["Bheed ka hissa banne se pehle ek baar akele baith kar dekho, tum kaun ho.","Shunya"],
+["Dukh ko mita nahi sakte, par uske saakshi ban sakte ho. Wahin se azaadi shuru hoti hai.","Shunya"]];
+const qe=document.getElementById('q'),qa=document.getElementById('qa');let qi=new Date().getDate()%Q.length;
+function showQ(){qe.classList.add('fade');setTimeout(()=>{qe.textContent='“'+Q[qi][0]+'”';qa.textContent='— '+Q[qi][1];qe.classList.remove('fade')},500)}
+document.getElementById('nq').onclick=()=>{qi=(qi+1)%Q.length;showQ()};
+qe.textContent='“'+Q[qi][0]+'”';qa.textContent='— '+Q[qi][1];
+
+const G=[["01","Saans ka saakshi","5 min · shuruaat",["Aaram se baitho, aankhein halki band.","Saans ko badalne ki koshish mat karo.","Bas dekho: andar aati, bahar jaati.","Mann bhaage to bina gusse ke wapas lao."]],
+["02","Chalte hue dhyan","10 min · kahin bhi",["Dheere chalna shuru karo.","Har kadam par pair ka zameen se milna mehsoos karo.","Aas-paas ki aawazein bina naam diye suno."]],
+["03","Naach aur shaanti","15 min · energetic",["Aankhein band, tez sangeet chalao.","Sharir ko jaise chahe hilne do, 10 min.","Achanak ruk jao aur 5 min bilkul sthir raho."]],
+["04","Raat ka khaali pal","8 min · neend se pehle",["Sote hue din ko ek-ek karke chhodte jao.","Sharir ke har hisse ko dhila karo.","Kuch bhi nahi karna, kuch bhi nahi banna."]],
+["05","Khaana, dhyan ke saath","10 min · roz ka",["Pehla niwala munh mein rakhne se pehle rukko.","Rang, khushboo, texture dekho.","Dheere chabao. Swaad ko poora aane do."]],
+["06","Gusse ka dhyan","7 min · tension mein",["Gussa aaye to dabao mat, bhaago mat.","Dekho wo sharir mein kahan hai: seena, jabda, haath.","Use naam do: ‘gussa hai’. Bas itna. Phir saans lo."]],
+["07","Aawaz ka dhyan","6 min · kahin bhi",["Aankhein band karo.","Jo bhi aawaz aaye, door ki, paas ki, use aane do.","Pasand-napasand ka label mat lagao."]]];
+const gw=document.getElementById('guides');
+G.forEach(g=>{const d=document.createElement('div');d.className='guide';d.innerHTML=`<span class="n">${g[0]}</span><h3>${g[1]}</h3><p>${g[2]}</p><ol>${g[3].map(s=>`<li>${s}</li>`).join('')}</ol><span class="tag">Tap karke kholo</span>`;d.onclick=()=>d.classList.toggle('open');gw.appendChild(d)});
+
+const T=[["Bina bhaage jeena","Zindagi se darne ki jagah usme utarna","48 min"],["Dar ke paar","Bhay ko dushman nahi, darwaza samjho","36 min"],["Hasi ka dhyan","Gambheerta bimari hai, halkapan swasthya","52 min"],["Akelapan aur ekaant","Dono mein farq kya hai","41 min"],["Rishte aur azaadi","Pyaar jo bandhta nahi, mukt karta hai","44 min"],["Kaam aur khel","Career ke beech bhi jagrukta kaise bachaye","39 min"],["Sharir ki samajh","Sharir dushman nahi, pehla dhyan-sthal hai","33 min"],["Maun ka sangeet","Shabdon ke beech ka khaali","29 min"]];
+document.getElementById('talklist').innerHTML=T.map((t,i)=>`<div class="talk"><span class="i">0${i+1}</span><div><h3>${t[0]}</h3><p>${t[1]}</p></div><span class="d">${t[2]}</span></div>`).join('');
+
+let run=false,timer;const orb=document.getElementById('orb'),ot=document.getElementById('ot');
+function cycle(){if(!run)return;orb.style.transition='transform 4s ease-in-out';orb.classList.add('in');ot.textContent='Saans lo';
+timer=setTimeout(()=>{if(!run)return;orb.style.transition='transform 6s ease-in-out';orb.classList.remove('in');ot.textContent='Chhodo';timer=setTimeout(cycle,6000)},4000)}
+document.getElementById('bb').onclick=function(){run=!run;this.textContent=run?'Ruko':'Breath guide';if(run)cycle();else{clearTimeout(timer);orb.classList.remove('in');ot.textContent='Tap karo'}};
+
+const root=document.documentElement;
+document.getElementById('theme').onclick=()=>{const dark=getComputedStyle(root).getPropertyValue('--bg').trim()==='#0e0e0d';root.setAttribute('data-theme',dark?'light':'dark')};
+
+/* timer */
+let dur=5,left=300,tm=null;const tt=document.getElementById('tt'),fg=document.getElementById('fg'),ts=document.getElementById('ts');
+const fmt=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+function setDur(m){dur=m;left=m*60;tt.textContent=fmt(left);fg.style.strokeDashoffset=0;document.querySelectorAll('#durs .chip').forEach(c=>c.classList.toggle('sel',+c.dataset.m===m))}
+[5,10,15,20].forEach(m=>{const b=document.createElement('button');b.className='chip';b.dataset.m=m;b.textContent=m+' min';b.onclick=()=>{if(!tm)setDur(m)};document.getElementById('durs').appendChild(b)});setDur(5);
+function bell(){try{const a=new (window.AudioContext||window.webkitAudioContext)(),o=a.createOscillator(),g=a.createGain();o.frequency.value=528;o.connect(g);g.connect(a.destination);g.gain.setValueAtTime(.2,a.currentTime);g.gain.exponentialRampToValueAtTime(.001,a.currentTime+4);o.start();o.stop(a.currentTime+4)}catch(e){}}
+ts.onclick=()=>{if(tm){clearInterval(tm);tm=null;ts.textContent='Shuru';setDur(dur);return}
+ts.textContent='Ruko';tm=setInterval(()=>{left--;tt.textContent=fmt(left);fg.style.strokeDashoffset=691*(1-left/(dur*60));if(left<=0){clearInterval(tm);tm=null;bell();ts.textContent='Shuru';tt.textContent='Shukriya';setTimeout(()=>setDur(dur),4000)}},1000)};
+/* mood */
+const M={"Bechain":["Bechaini ko roko mat","Ek haath seene par, ek pet par rakho. 6 lambi saansein lo, bahar ki saans lambi rakho. Bechaini ko jagah do, wo khud thakkar baith jayegi."],"Thaka hua":["Thakaan ko sunna","Lait jao ya kursi par pasar jao. Sharir ke har hisse ko ek-ek karke dhila karo. Aaj kuch ‘achha’ karne ki zaroorat nahi, bas rukna hai."],"Gussa":["Gusse ko jagah do","Haath mutthi mein bhincho, 5 second, phir chhod do. 3 baar. Phir dekho gussa sharir mein kahan hai, uske saath 1 minute baitho."],"Ulajha hua":["Ulajhan mein ek kadam","Ek kaagaz par jo bhi mann mein hai likh do, bina soche. Phir 3 saans lo aur pucho: abhi sirf ek chhota kadam kya hai?"],"Udaas":["Udaasi ke saath baithna","Use theek karne ki jaldi mat karo. Paani ka ek ghoont lo, khidki ke paas jao aur bas dekho. Agar bhaari lage to kisi apne se baat karna zaroori hai."],"Theek-thaak":["Is shaanti ko pehchano","Abhi jo halka sa theek-pan hai, use 5 saans tak mehsoos karo. Yahi wo jagah hai jahan se roz dhyan shuru ho sakta hai."]};
+Object.keys(M).forEach(k=>{const b=document.createElement('button');b.className='chip';b.textContent=k;b.onclick=()=>{document.querySelectorAll('#moods .chip').forEach(c=>c.classList.remove('sel'));b.classList.add('sel');document.getElementById('resp').innerHTML='<h4>'+M[k][0]+'</h4><p>'+M[k][1]+'</p>'};document.getElementById('moods').appendChild(b)});
+/* prompts */
+const P=['Abhi is pal mein mujhe kya sach mein chahiye?','Kaun si cheez main sirf isliye kar raha hoon kyunki sab karte hain?','Main kis cheez se bhaag raha hoon?','Aaj kab main poori tarah maujood tha?','Agar kisi ko jawab dena na ho, to main kaun hoon?','Mujhe kis baat ki azaadi chahiye?','Abhi mere sharir mein kya mehsoos ho raha hai?'];
+let pi=Math.floor(Math.random()*P.length);const pr=document.getElementById('pr');pr.textContent=P[pi];
+document.getElementById('np').onclick=()=>{pr.style.opacity=0;setTimeout(()=>{pi=(pi+1)%P.length;pr.textContent=P[pi];pr.style.opacity=1},500)};
+/* progress */
+const pg=document.getElementById('prog');addEventListener('scroll',()=>{const h=document.documentElement;pg.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
